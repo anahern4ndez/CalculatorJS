@@ -1,9 +1,9 @@
 import React from 'react';
 
 function Operation(props){
-    const { value, handleClick } = props
+    const { value, handleClick, number } = props
     return(
-        <div>
+        <div className="btn">
             <button value={value} onClick={handleClick}>{ value }</button>
         </div>
     )
