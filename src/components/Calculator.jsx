@@ -51,19 +51,76 @@ class Calculator extends Component {
         }
     }
     onOperationClick(type){
-        if (this.state.currentOperation !== null && this.state.op2 !== "0") {
-            this.calculate()
+        
+        if(type === "C"){
+            this.setState( state => ({
+                display: "",
+                op1: "0",
+                op2: "0",
+                currentOperation: null
+            }))
         }
-        this.setState(state=> ({
-            currentOperation: type,
-        }))
+        else if(type === "+/-" && this.state.display.length < 9){
+            let number = parseFloat(this.state.display) * -1
+            if (this.state.op1 !== "0" && this.state.op2 === "0"){
+                this.setState( state => ({
+                    display: number,
+                    op1: number.toString()
+                }))
+                //console.log('1, co '+ this.state.currentOperation + ' n1 '+ this.state.op1 + ' n2 ' + this.state.op2)
+            }
+            else if (this.state.op1 !== "0" && this.state.op2 !== "0"){
+                this.setState( state => ({
+                    display: number,
+                    op2: number.toString()
+                }))
+                //console.log('2, co '+ this.state.currentOperation + ' n1 '+ this.state.op1 + ' n2 ' + this.state.op2)
+            }
+        }
+        else if(type === "%"){
+            let number = parseFloat(this.state.display) * 0.01
+            if (this.state.op1 !== "0" && this.state.op2 === "0"){
+                this.setState( state => ({
+                    display: number,
+                    op1: number.toString()
+                }))
+            }
+            else if (this.state.op1 !== "0" && this.state.op2 !== "0"){
+                this.setState( state => ({
+                    display: number,
+                    op2: number.toString()
+                }))
+            }
+        }
+        else if(type === "." && this.state.display.length < 9){
+            if (this.state.op1 !== "0" && this.state.op2 === "0"){
+                this.setState( state => ({
+                    display: state.display.concat("."),
+                    op1: state.op1.concat(".")
+                }))
+            }
+            else if (this.state.op1 !== "0" && this.state.op2 !== "0"){
+                this.setState( state => ({
+                    display: state.display.concat("."),
+                    op2: state.op2.concat(".")
+                }))
+            }
+        }
+        else{
+            if (this.state.currentOperation !== null && this.state.op2 !== "0") {
+                this.calculate()
+            }
+            this.setState(state=> ({
+                currentOperation: type,
+            }))
+        }
     }
     calculate(){
         let result = 0 
         const n1 = parseFloat(this.state.op1, 10)
         const n2 = parseFloat(this.state.op2, 10)
         const op = this.state.currentOperation
-        console.log("n1 " + n1 + " n2 " + n2 + " op " + op)
+        //console.log("n1 " + n1 + " n2 " + n2 + " op " + op)
         if(op === "+"){
             result = n1+n2
         }
@@ -72,6 +129,10 @@ class Calculator extends Component {
         }
         else if(op === "÷"){
             result = n1/n2
+            if(result.toString().length >9){
+                result = (result.toString()).substring(0,9)
+                result = parseFloat(result)
+            }
         }
         else if(op === "-"){
             result = n1-n2
@@ -82,7 +143,8 @@ class Calculator extends Component {
                 op1: result.toString(),
                 op2: "0"
             }))
-        }else if (result > 999999999 || result < 0){
+        }
+        if (result > 999999999 || result < 0){
             this.setState( state => ({
                 display: "ERROR",
                 op1: "0",

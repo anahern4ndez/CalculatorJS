@@ -15,13 +15,13 @@
 #calc{
     width: 450px;
     height: 650px;
-    background: blueviolet;
+    background: grey;
     display: flex;
-    align-content: flex-start;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-content: center;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    text-align: center;
     //reordenar botones
     :nth-child(1) { order: 0 }
     :nth-child(2) { order: 1 }
@@ -53,8 +53,8 @@
     justify-content: center;
     transition: opacity .2s ease-out;
     button{
-        height: 99.5%;
-        width: 99.5%;
+        height: 100%;
+        width: 100%;
         padding: 0;
         margin: 0;
     }

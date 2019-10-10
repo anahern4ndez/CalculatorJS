@@ -18,24 +18,22 @@
 #calc {
   width: 450px;
   height: 650px;
-  background: blueviolet;
+  background: grey;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: flex-start;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  text-align: center;
 }
 
 #calc :nth-child(1) {
@@ -171,8 +169,8 @@
 }
 
 .btn button {
-  height: 99.5%;
-  width: 99.5%;
+  height: 100%;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
