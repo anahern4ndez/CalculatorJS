@@ -159,16 +159,12 @@
 .btn {
   width: 25%;
   height: 15.8%;
-  display: block;
-  text-align: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-transition: opacity .2s ease-out;
   transition: opacity .2s ease-out;
 }
 
 .btn button {
+  font-size: 150%;
   height: 100%;
   width: 100%;
   padding: 0;

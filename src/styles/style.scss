@@ -48,11 +48,9 @@
 .btn{
     width: 25%;
     height: 15.8%;
-    display: block;
-    text-align: center;
-    justify-content: center;
     transition: opacity .2s ease-out;
     button{
+        font-size: 150%;
         height: 100%;
         width: 100%;
         padding: 0;
