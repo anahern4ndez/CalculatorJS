@@ -104,7 +104,7 @@ class Calculator extends Component {
 
   createButtons() {
     const buttons = []
-
+    const colors = ["1", "1", "1", "0", "0", "0", "0", "0", "2"]
     const operations = ['C', '+/-', '%', '÷', 'x', '-', '+', '=', '.']
     for (let i = 0; i < 9; i++) {
       buttons.push(
@@ -112,6 +112,7 @@ class Calculator extends Component {
           value={operations[i]}
           key={i}
           handleClick={this.onOperationClick.bind(this, operations[i])}
+          color={colors[i]}
         />,
       )
     }

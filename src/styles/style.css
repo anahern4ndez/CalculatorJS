@@ -13,12 +13,14 @@
   background-color: black;
   width: 100%;
   font-family: 'Roboto', sans-serif;
+  border-radius: 12px;
+  margin: 2%;
 }
 
 #calc {
   width: 450px;
   height: 650px;
-  background: grey;
+  background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,6 +36,8 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   text-align: center;
+  padding: 7% 5% 7% 5%;
+  border-radius: 15px;
 }
 
 #calc :nth-child(1) {
@@ -157,29 +161,44 @@
 }
 
 .btn {
-  width: 25%;
+  width: 23%;
   height: 15.8%;
   -webkit-transition: opacity .2s ease-out;
   transition: opacity .2s ease-out;
+  margin: 1%;
 }
 
 .btn button {
   font-size: 150%;
+  border-style: hidden;
   height: 100%;
   width: 100%;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  border-radius: 25px;
 }
 
 .btn :hover {
-  opacity: .9;
+  opacity: 0.6;
 }
 
 .btn :active {
   opacity: 0.8;
 }
 
+.btn :focus {
+  outline: none;
+}
+
 [double-col="1"] {
-  width: 50%;
+  width: 48%;
+}
+
+[btncolor="1"] {
+  background-color: grey;
+}
+
+[btncolor="0"] {
+  background-color: coral;
 }
 /*# sourceMappingURL=style.css.map */
