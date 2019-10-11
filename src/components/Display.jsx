@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/style.css';
 
 function Display(props) {
   const { text } = props;
