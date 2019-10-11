@@ -22,7 +22,7 @@
         "react"
     ],
     "rules": {
-        "semi": ["error", "always"],
+        "semi": ["error", "never"],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
         "import/extensions": 0,
         "react/prop-types": 0,

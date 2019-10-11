@@ -1,15 +1,27 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import Calculator from '../components/Calculator.jsx';
 import Number from '../components/Number.jsx';
 
-test('Change of display when clicking a number', () => {
-  const wrapper = shallow(<Calculator />)
-  const number = wrapper.find(<Number />).at(2)
+describe('Calculator component', () => {
 
-  expect(wrapper.state().display).toEqual('');
+  const wrapper = mount(<Calculator />)
+  const number = wrapper.children().find(Number).at(5)
+  test('Change of display when clicking a number', () => {
+    expect(wrapper.state().display).toEqual('')
+    number.simulate('click')
+    expect(wrapper.state().display).toEqual(number.props().nvalue.toString())
+  })
 
-  number.simulate('click');
+  test('Append button value when clicked twice', () => {
+    number.simulate('click')
+    expect(wrapper.state().display).toEqual((number.props().nvalue.toString()).concat(number.props().nvalue.toString()));
+  })
 
-  expect(wrapper.state().display).toEqual('1');
-});
+  test('Clear display value when C is pressed', () => {
+    const clear = wrapper.children().find('Operation[value="C"]')
+    expect(wrapper.state().display).toEqual((number.props().nvalue.toString()).concat(number.props().nvalue.toString()));
+    clear.simulate('click')
+    expect(wrapper.state().display).toEqual('')
+  })
+})
